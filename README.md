@@ -108,6 +108,18 @@ Visit http://localhost:3000.
 
 ## Deploy
 
+### Render
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ojusave/morphic)
+
+Deploy Morphic on [Render](https://render.com/) with managed PostgreSQL and [Exa](https://exa.ai/) neural search (no self-hosted SearXNG stack). The Blueprint builds from this repo's `Dockerfile` and runs Drizzle migrations on startup.
+
+1. Click **Deploy to Render** (or connect this repo as a Blueprint in the Render Dashboard).
+2. Set `EXA_API_KEY` and at least one LLM key (e.g. `OPENAI_API_KEY`).
+3. Wait for **Live**, then open the web service URL.
+
+See [`render.yaml`](./render.yaml) for the full resource list.
+
 ### Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=OPENAI_API_KEY,TAVILY_API_KEY,ENABLE_AUTH)

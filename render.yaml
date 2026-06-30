@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+#
+# Morphic on Render — Exa search variant (fork of miurla/morphic)
+# Repo: https://github.com/ojusave/morphic
+# Builds from ./Dockerfile (migrations run on container start).
+#
+# At Apply: set EXA_API_KEY and at least one LLM provider key.
+
+previews:
+  generation: off
+
+projects:
+  - name: morphic
+    environments:
+      - name: production
+        services:
+          - type: web
+            name: morphic
+            runtime: docker
+            plan: standard
+            region: oregon
+            dockerfilePath: ./Dockerfile
+            dockerContext: .
+            healthCheckPath: /
+            envVars:
+              - key: NODE_ENV
+                value: production
+              - key: ENABLE_AUTH
+                value: "false"
+              - key: ANONYMOUS_USER_ID
+                value: anonymous-user
+              - key: SEARCH_API
+                value: exa
+              - key: DATABASE_URL
+                fromDatabase:
+                  name: morphic-db
+                  property: connectionString
+              - key: DATABASE_RESTRICTED_URL
+                fromDatabase:
+                  name: morphic-db
+                  property: connectionString
+              - key: EXA_API_KEY
+                sync: false
+              - key: OPENAI_API_KEY
+                sync: false
+              - key: ANTHROPIC_API_KEY
+                sync: false
+              - key: GOOGLE_GENERATIVE_AI_API_KEY
+                sync: false
+
+        databases:
+          - name: morphic-db
+            plan: basic-256mb
+            region: oregon
+            databaseName: morphic
+            postgresMajorVersion: "17"
+            ipAllowList: []
