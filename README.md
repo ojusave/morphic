@@ -110,15 +110,16 @@ Visit http://localhost:3000.
 
 ### Render
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ojusave/morphic)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/miurla/morphic)
 
-Deploy Morphic on [Render](https://render.com/) with managed PostgreSQL and [Exa](https://exa.ai/) neural search (no self-hosted SearXNG stack). The Blueprint builds from this repo's `Dockerfile` and runs Drizzle migrations on startup.
+Deploy Morphic on [Render](https://render.com/) with managed PostgreSQL and [Exa](https://exa.ai/) neural search. This repo includes a [`render.yaml`](./render.yaml) Blueprint you can use in **any fork** of [miurla/morphic](https://github.com/miurla/morphic): no upstream PR is required.
 
-1. Click **Deploy to Render** (or connect this repo as a Blueprint in the Render Dashboard).
-2. Set `EXA_API_KEY` and at least one LLM key (e.g. `OPENAI_API_KEY`).
-3. Wait for **Live**, then open the web service URL.
+1. Fork this repo (or copy `render.yaml` into your own Morphic fork).
+2. **New → Blueprint** in the [Render Dashboard](https://dashboard.render.com/) and connect your fork.
+3. At Apply, set `EXA_API_KEY`. After deploy, add at least one LLM key in the Dashboard (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_GENERATIVE_AI_API_KEY`).
+4. Open the `morphic` web service URL when the deploy is **Live**.
 
-See [`render.yaml`](./render.yaml) for the full resource list.
+The Blueprint builds from `./Dockerfile` and provisions `morphic` (web) + `morphic-db` (Postgres). See [`render.yaml`](./render.yaml) for the full resource list and comments.
 
 ### Vercel
 
