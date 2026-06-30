@@ -1,0 +1,12 @@
+{
+  "title": "Morphic on Render",
+  "slug": "morphic-render-template",
+  "description": "Deploy Morphic on Render with one click: AI search with a generative UI, Exa neural search, managed PostgreSQL, and Docker build from the upstream app.",
+  "githubRepo": "https://github.com/render-examples/morphic-render-template",
+  "demoUrl": "https://morphic-us8x.onrender.com/",
+  "deployUrl": "https://render.com/deploy-template/api/github/start?template_repo=morphic-render-template",
+  "stack": ["docker", "postgresql", "nextjs", "nodejs"],
+  "tags": ["ai", "llm", "rag", "search"],
+  "estimatedCostUsdPerMonth": 31,
+  "region": "oregon"
+}
