@@ -108,22 +108,14 @@ Visit http://localhost:3000.
 
 ## Deploy
 
-### Render
-
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/miurla/morphic)
-
-Deploy Morphic on [Render](https://render.com/) with managed PostgreSQL and [Exa](https://exa.ai/) neural search. This repo includes a [`render.yaml`](./render.yaml) Blueprint you can use in **any fork** of [miurla/morphic](https://github.com/miurla/morphic): no upstream PR is required.
-
-1. Fork this repo (or copy `render.yaml` into your own Morphic fork).
-2. **New → Blueprint** in the [Render Dashboard](https://dashboard.render.com/) and connect your fork.
-3. At Apply, set `EXA_API_KEY`. After deploy, add at least one LLM key in the Dashboard (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_GENERATIVE_AI_API_KEY`).
-4. Open the `morphic` web service URL when the deploy is **Live**.
-
-The Blueprint builds from `./Dockerfile` and provisions `morphic` (web) + `morphic-db` (Postgres). See [`render.yaml`](./render.yaml) for the full resource list and comments.
-
-### Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=OPENAI_API_KEY,TAVILY_API_KEY,ENABLE_AUTH)
+<p>
+  <a href="https://render.com/deploy?repo=https://github.com/ojusave/morphic">
+    <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" height="32" />
+  </a>
+  <a href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=OPENAI_API_KEY,TAVILY_API_KEY,ENABLE_AUTH">
+    <img src="https://vercel.com/button" alt="Deploy with Vercel" height="32" />
+  </a>
+</p>
 
 ## Contributing
 
