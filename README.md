@@ -2,13 +2,13 @@
 
 > AI-powered search with a generative UI: grounded answers, cited sources, and rich inline components.
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ojusave/morphic)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy-template/api/github/start?template_repo=morphic-render-template)
 
-**Template branch:** [`render-templates`](https://github.com/ojusave/morphic/tree/render-templates) on [ojusave/morphic](https://github.com/ojusave/morphic)
+**Template repository:** [render-examples/morphic-render-template](https://github.com/render-examples/morphic-render-template) *(publish target)* · **Live demo:** [morphic-us8x.onrender.com](https://morphic-us8x.onrender.com/)
 
 Deploy [Morphic](https://github.com/miurla/morphic) on Render with a [`render.yaml`](./render.yaml) Blueprint: Docker build from `./Dockerfile`, managed PostgreSQL for chat history, and [Exa](https://exa.ai/) neural search. No self-hosted SearXNG or Redis in this variant.
 
-![Morphic home — search modes and prompt bar](./assets/home.png)
+![Morphic on Render — home](./assets/hero.png)
 
 ![Morphic search results — sources, summary, and structured answer](./assets/search-results.png)
 
@@ -18,7 +18,7 @@ Deploy [Morphic](https://github.com/miurla/morphic) on Render with a [`render.ya
 
 ## Deploy
 
-1. Click **[Deploy to Render](https://render.com/deploy?repo=https://github.com/ojusave/morphic)** and connect the **`render-templates`** branch (or merge it to your default branch first).
+1. Click **[Deploy to Render](https://render.com/deploy-template/api/github/start?template_repo=morphic-render-template)** and fork into your GitHub account.
 2. On Apply, confirm `morphic` and `morphic-db`. Set `EXA_API_KEY`.
 3. Wait for **Live** (~5–10 min). Migrations run on container start.
 4. Add at least one LLM key in the Dashboard (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_GENERATIVE_AI_API_KEY`). Do not leave placeholder keys.
@@ -26,7 +26,12 @@ Deploy [Morphic](https://github.com/miurla/morphic) on Render with a [`render.ya
 
 New to Render? **[Sign up on Render](https://dashboard.render.com/register?utm_source=github&utm_medium=referral&utm_campaign=ojus_demos&utm_content=hero_cta)** first.
 
-Upstream docs: [github.com/miurla/morphic](https://github.com/miurla/morphic) · live demo: [chat.morphic.sh](https://chat.morphic.sh)
+Try the demo: [morphic-us8x.onrender.com](https://morphic-us8x.onrender.com/) · Upstream: [github.com/miurla/morphic](https://github.com/miurla/morphic) · [chat.morphic.sh](https://chat.morphic.sh)
+
+```bash
+curl -sS -o /dev/null -w "%{http_code}\n" https://morphic-us8x.onrender.com/
+# 200
+```
 
 ---
 
@@ -114,6 +119,12 @@ More issues: [miurla/morphic issues](https://github.com/miurla/morphic/issues)
 
 ---
 
+## Gallery listing
+
+To appear on [render.com/templates](https://render.com/templates), complete [SANITY-SUBMISSION.md](./SANITY-SUBMISSION.md). Catalog requires `render-examples/morphic-render-template` with `render.yaml` on the **default branch** and `is_template: true`.
+
+---
+
 ## Security & license
 
 TLS at Render's edge. Postgres encrypted at rest on Render. Never commit API keys.
@@ -123,7 +134,7 @@ TLS at Render's edge. Postgres encrypted at rest on Render. Never commit API key
 ---
 
 <p align="center">
-  <a href="https://render.com/deploy?repo=https://github.com/ojusave/morphic">
+  <a href="https://render.com/deploy-template/api/github/start?template_repo=morphic-render-template">
     <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" />
   </a>
   &nbsp;
@@ -131,5 +142,5 @@ TLS at Render's edge. Postgres encrypted at rest on Render. Never commit API key
     Sign up on Render
   </a>
   &nbsp;·&nbsp;
-  <a href="https://github.com/ojusave/morphic">GitHub</a>
+  <a href="https://github.com/render-examples/morphic-render-template">GitHub</a>
 </p>
