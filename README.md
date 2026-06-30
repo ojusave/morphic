@@ -1,118 +1,12 @@
-<div align="center">
+# Morphic on Render
 
-# Morphic
-
-An AI-powered search engine with a generative UI.
-
-[![DeepWiki](https://img.shields.io/badge/DeepWiki-miurla%2Fmorphic-blue.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAyCAYAAAAnWDnqAAAAAXNSR0IArs4c6QAAA05JREFUaEPtmUtyEzEQhtWTQyQLHNak2AB7ZnyXZMEjXMGeK/AIi+QuHrMnbChYY7MIh8g01fJoopFb0uhhEqqcbWTp06/uv1saEDv4O3n3dV60RfP947Mm9/SQc0ICFQgzfc4CYZoTPAswgSJCCUJUnAAoRHOAUOcATwbmVLWdGoH//PB8mnKqScAhsD0kYP3j/Yt5LPQe2KvcXmGvRHcDnpxfL2zOYJ1mFwrryWTz0advv1Ut4CJgf5uhDuDj5eUcAUoahrdY/56ebRWeraTjMt/00Sh3UDtjgHtQNHwcRGOC98BJEAEymycmYcWwOprTgcB6VZ5JK5TAJ+fXGLBm3FDAmn6oPPjR4rKCAoJCal2eAiQp2x0vxTPB3ALO2CRkwmDy5WohzBDwSEFKRwPbknEggCPB/imwrycgxX2NzoMCHhPkDwqYMr9tRcP5qNrMZHkVnOjRMWwLCcr8ohBVb1OMjxLwGCvjTikrsBOiA6fNyCrm8V1rP93iVPpwaE+gO0SsWmPiXB+jikdf6SizrT5qKasx5j8ABbHpFTx+vFXp9EnYQmLx02h1QTTrl6eDqxLnGjporxl3NL3agEvXdT0WmEost648sQOYAeJS9Q7bfUVoMGnjo4AZdUMQku50McDcMWcBPvr0SzbTAFDfvJqwLzgxwATnCgnp4wDl6Aa+Ax283gghmj+vj7feE2KBBRMW3FzOpLOADl0Isb5587h/U4gGvkt5v60Z1VLG8BhYjbzRwyQZemwAd6cCR5/XFWLYZRIMpX39AR0tjaGGiGzLVyhse5C9RKC6ai42ppWPKiBagOvaYk8lO7DajerabOZP46Lby5wKjw1HCRx7p9sVMOWGzb/vA1hwiWc6jm3MvQDTogQkiqIhJV0nBQBTU+3okKCFDy9WwferkHjtxib7t3xIUQtHxnIwtx4mpg26/HfwVNVDb4oI9RHmx5WGelRVlrtiw43zboCLaxv46AZeB3IlTkwouebTr1y2NjSpHz68WNFjHvupy3q8TFn3Hos2IAk4Ju5dCo8B3wP7VPr/FGaKiG+T+v+TQqIrOqMTL1VdWV1DdmcbO8KXBz6esmYWYKPwDL5b5FA1a0hwapHiom0r/cKaoqr+27/XcrS5UwSMbQAAAABJRU5ErkJggg==)](https://deepwiki.com/miurla/morphic) [![GitHub stars](https://img.shields.io/github/stars/miurla/morphic?style=flat&colorA=000000&colorB=000000)](https://github.com/miurla/morphic/stargazers) [![GitHub forks](https://img.shields.io/github/forks/miurla/morphic?style=flat&colorA=000000&colorB=000000)](https://github.com/miurla/morphic/network/members)
-
-<a href="https://vercel.com/oss">
-  <img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge.svg" />
-</a>
-
-<br />
-<br />
-
-<a href="https://trendshift.io/repositories/9207" target="_blank"><img src="https://trendshift.io/api/badge/repositories/9207" alt="miurla%2Fmorphic | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-
-<img src="./public/screenshot-2026-06-10.png" />
-
-</div>
-
-## Features
-
-- AI-powered search with grounded, cited answers
-- Generative UI — answers render rich inline components (source-credited images, grids, headings) live from a streamed JSON spec, beyond plain markdown
-- Search modes: Quick and Adaptive
-- Model selector with dynamic provider detection (OpenAI, Anthropic, Google, Ollama, Vercel AI Gateway, OpenAI-compatible providers)
-- Multiple search providers (Tavily, SearXNG, Brave, Exa)
-- Chat history stored in PostgreSQL
-- Share search results with unique URLs
-- File upload support
-- User authentication with Supabase Auth
-- Guest mode for anonymous usage
-- Docker deployment ready
-
-## Installation
-
-### Docker (Recommended)
-
-The quickest way to run Morphic locally:
-
-```bash
-docker pull ghcr.io/miurla/morphic:latest
-```
-
-Then set up with Docker Compose:
-
-1. Clone the repository and configure environment:
-
-```bash
-git clone https://github.com/miurla/morphic.git
-cd morphic
-cp .env.local.example .env.local
-```
-
-2. Edit `.env.local` and set at least one AI provider API key:
-
-```bash
-OPENAI_API_KEY=your_openai_key
-```
-
-See [supported providers](./docs/CONFIGURATION.md#supported-providers) for other options (Anthropic, Google, Ollama, Vercel AI Gateway, OpenAI-compatible providers).
-
-3. Start all services:
-
-```bash
-docker compose up -d
-```
-
-4. Visit http://localhost:3000 and select your model from the model selector.
-
-Docker Compose starts PostgreSQL, Redis, SearXNG, and Morphic automatically. No additional search API key is needed — SearXNG is included.
-
-See the [Docker Guide](./docs/DOCKER.md) for more options including building from source and file upload configuration.
-
-### Local Development
-
-1. Clone and install:
-
-```bash
-git clone https://github.com/miurla/morphic.git
-cd morphic
-bun install
-```
-
-2. Configure environment:
-
-```bash
-cp .env.local.example .env.local
-```
-
-Edit `.env.local` and set your API keys:
-
-```bash
-OPENAI_API_KEY=your_openai_key
-TAVILY_API_KEY=your_tavily_key
-```
-
-To enable chat history, authentication, file upload, and other features, see [CONFIGURATION.md](./docs/CONFIGURATION.md).
-
-3. Start the dev server:
-
-```bash
-bun dev
-```
-
-Visit http://localhost:3000.
-
-## Deploy
-
-### Render
+> AI-powered search with a generative UI: grounded answers, cited sources, and rich inline components.
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ojusave/morphic)
 
-Deploy Morphic on [Render](https://render.com/) with managed PostgreSQL and [Exa](https://exa.ai/) neural search. This fork includes a [`render.yaml`](./render.yaml) Blueprint you can use in **any fork** of [miurla/morphic](https://github.com/miurla/morphic): no upstream PR is required.
+**Template branch:** [`render-templates`](https://github.com/ojusave/morphic/tree/render-templates) on [ojusave/morphic](https://github.com/ojusave/morphic)
+
+Deploy [Morphic](https://github.com/miurla/morphic) on Render with a [`render.yaml`](./render.yaml) Blueprint: Docker build from `./Dockerfile`, managed PostgreSQL for chat history, and [Exa](https://exa.ai/) neural search. No self-hosted SearXNG or Redis in this variant.
 
 ![Morphic home — search modes and prompt bar](./assets/home.png)
 
@@ -120,26 +14,122 @@ Deploy Morphic on [Render](https://render.com/) with managed PostgreSQL and [Exa
 
 **At a glance:** ~$31/mo (Oregon) · first deploy ~5–10 min · **Standard** web plan · `EXA_API_KEY` at Apply · one LLM key after deploy
 
-1. Fork this repo (or copy `render.yaml` into your own Morphic fork).
-2. **New → Blueprint** in the [Render Dashboard](https://dashboard.render.com/) and connect your fork.
-3. At Apply, set `EXA_API_KEY`. After deploy, add at least one LLM key in the Dashboard (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_GENERATIVE_AI_API_KEY`). Do not leave placeholder LLM keys.
-4. Open the `morphic` web service URL when the deploy is **Live**. Pick a model in the UI that matches the LLM key you set.
+---
 
-The Blueprint builds from `./Dockerfile` and provisions `morphic` (web) + `morphic-db` (Postgres). See [`render.yaml`](./render.yaml) for the full resource list and comments.
+## Deploy
+
+1. Click **[Deploy to Render](https://render.com/deploy?repo=https://github.com/ojusave/morphic)** and connect the **`render-templates`** branch (or merge it to your default branch first).
+2. On Apply, confirm `morphic` and `morphic-db`. Set `EXA_API_KEY`.
+3. Wait for **Live** (~5–10 min). Migrations run on container start.
+4. Add at least one LLM key in the Dashboard (`ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_GENERATIVE_AI_API_KEY`). Do not leave placeholder keys.
+5. Open the **`morphic`** web service URL and pick a model that matches your LLM key.
+
+New to Render? **[Sign up on Render](https://dashboard.render.com/register?utm_source=github&utm_medium=referral&utm_campaign=ojus_demos&utm_content=hero_cta)** first.
+
+Upstream docs: [github.com/miurla/morphic](https://github.com/miurla/morphic) · live demo: [chat.morphic.sh](https://chat.morphic.sh)
+
+---
+
+## What's included
+
+```mermaid
+flowchart LR
+  user["Browser"] --> web["morphic"]
+  web --> exa["Exa API"]
+  web --> llm["LLM provider"]
+  web --> db[("morphic-db")]
+```
 
 | Resource | Plan | Role |
 |----------|------|------|
 | `morphic` | Standard | Docker build from `./Dockerfile`, Exa search |
-| `morphic-db` | basic-256mb | PostgreSQL 17 — chat history |
+| `morphic-db` | basic-256mb | PostgreSQL 17 — chat history via Drizzle |
 
-### Vercel
+Default region: **oregon** (change in [`render.yaml`](./render.yaml)).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmiurla%2Fmorphic&env=OPENAI_API_KEY,TAVILY_API_KEY,ENABLE_AUTH)
+**Use it for:** research assistants · cited AI search · generative UI demos · internal knowledge exploration
 
-## Contributing
+---
 
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details on how to get started, including local development setup.
+## Environment variables
 
-## License
+**Required at Apply:**
 
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
+| Variable | Purpose |
+|----------|---------|
+| `EXA_API_KEY` | Exa neural search ([dashboard.exa.ai](https://dashboard.exa.ai/)) |
+
+**Set after deploy (Dashboard):**
+
+| Variable | Purpose |
+|----------|---------|
+| One LLM key | `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`, or `GOOGLE_GENERATIVE_AI_API_KEY` |
+
+**Wired in [`render.yaml`](./render.yaml):**
+
+| Variable | Value / source |
+|----------|----------------|
+| `DATABASE_URL` | `morphic-db` connection string |
+| `DATABASE_RESTRICTED_URL` | Same Postgres instance |
+| `SEARCH_API` | `exa` |
+| `ENABLE_AUTH` | `false` (anonymous single-user mode) |
+| `ANONYMOUS_USER_ID` | `anonymous-user` |
+| `NODE_TLS_REJECT_UNAUTHORIZED` | `0` (Render Postgres TLS workaround; no app code change) |
+
+<details>
+<summary>Optional overrides after deploy</summary>
+
+See [.env.local.example](./.env.local.example) and upstream [CONFIGURATION.md](https://github.com/miurla/morphic/blob/main/docs/CONFIGURATION.md):
+
+- **Multi-user auth:** `ENABLE_AUTH=true` + Supabase env vars
+- **Different search:** `SEARCH_API=tavily` + `TAVILY_API_KEY`
+- **File uploads:** Cloudflare R2 / S3-compatible vars
+
+</details>
+
+---
+
+## Cost
+
+| Resource | ~USD/mo |
+|----------|--------:|
+| `morphic` (Standard) | 25 |
+| `morphic-db` (basic-256mb) | 6 |
+| **Render subtotal** | **~31** |
+
+Exa and LLM API usage are billed separately by those providers.
+
+---
+
+## Troubleshooting
+
+| Problem | Fix |
+|---------|-----|
+| "We could not generate a response" | Set a real LLM key; remove any `OPENAI_API_KEY=REPLACE_ME` placeholder. Pick a matching model in the UI. |
+| Search errors | Confirm `EXA_API_KEY` and `SEARCH_API=exa`. |
+| Postgres / TLS errors in logs | Confirm `NODE_TLS_REJECT_UNAUTHORIZED=0` from the Blueprint is present on the service. |
+| Deploy stuck / health check fails | Check logs for OOM. **Standard** plan is recommended for Next.js + AI workloads. |
+
+More issues: [miurla/morphic issues](https://github.com/miurla/morphic/issues)
+
+---
+
+## Security & license
+
+TLS at Render's edge. Postgres encrypted at rest on Render. Never commit API keys.
+
+- **Morphic:** [Apache-2.0](https://github.com/miurla/morphic/blob/main/LICENSE)
+
+---
+
+<p align="center">
+  <a href="https://render.com/deploy?repo=https://github.com/ojusave/morphic">
+    <img src="https://render.com/images/deploy-to-render-button.svg" alt="Deploy to Render" />
+  </a>
+  &nbsp;
+  <a href="https://dashboard.render.com/register?utm_source=github&utm_medium=referral&utm_campaign=ojus_demos&utm_content=footer_link">
+    Sign up on Render
+  </a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/ojusave/morphic">GitHub</a>
+</p>
